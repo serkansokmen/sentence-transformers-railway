@@ -13,6 +13,10 @@ model.encode(['dummy'])
 
 app = FastAPI()
 
+@app.get("/health")
+async def heathcheck():
+    return {"status": "ok"}
+
 class EmbeddingRequest(BaseModel):
     texts: List[str]
 
